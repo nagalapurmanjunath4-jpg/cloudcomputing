@@ -1,12 +1,12 @@
 :root {
     /* Premium Slate/Blue Palette - Further Refined */
     --bg-color: #0f172a;
-    --bg-mesh: radial-gradient(at 0% 0%, hsla(253, 16%, 10%, 1) 0, transparent 50%), 
-               radial-gradient(at 50% 0%, hsla(225, 39%, 25%, 1) 0, transparent 50%), 
-               radial-gradient(at 100% 0%, hsla(339, 49%, 25%, 1) 0, transparent 50%);
-    --bg-light-mesh: radial-gradient(at 40% 20%, rgba(59, 130, 246, 0.08) 0px, transparent 50%), 
-                     radial-gradient(at 80% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%), 
-                     #fdfdff;
+    --bg-mesh: radial-gradient(at 0% 0%, hsla(253, 16%, 10%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(225, 39%, 25%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(339, 49%, 25%, 1) 0, transparent 50%);
+    --bg-light-mesh: radial-gradient(at 40% 20%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+        #fdfdff;
 
     --text-color: #1e293b;
     --text-secondary: #64748b;
@@ -51,14 +51,17 @@ body {
 }
 
 #root {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 2.5rem 2rem;
+    padding: 1.5rem 2rem;
 }
 
-h1, h2, h3, h4 {
-    font-weight: 800;
-    letter-spacing: -0.04em;
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
     margin-top: 0;
     color: #0f172a;
 }
@@ -66,13 +69,20 @@ h1, h2, h3, h4 {
 .container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    gap: 2rem;
+    animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Navbar */
@@ -80,69 +90,64 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 1.25rem 2.5rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    margin-bottom: 4rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2.5rem;
     border: 1px solid var(--card-border);
     position: sticky;
-    top: 1.5rem;
+    top: 1rem;
     z-index: 100;
-    transition: all 0.4s ease;
 }
 
 .brand {
-    font-size: 2rem;
-    font-weight: 900;
+    font-size: 1.5rem;
+    font-weight: 800;
     background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     cursor: pointer;
-    letter-spacing: -0.06em;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+    letter-spacing: -0.04em;
 }
 
 .user-controls {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .welcome-text {
     color: var(--text-secondary);
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
 }
 
 /* Cards & Glassmorphism */
 .card {
     background: var(--card-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--card-border);
     border-radius: var(--radius);
-    padding: 3rem;
+    padding: 2.5rem;
     box-shadow: var(--shadow);
-    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.card:hover {
-    box-shadow: var(--shadow-md);
-    border-color: rgba(255,255,255,0.9);
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .title {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     color: var(--text-color);
     position: relative;
     display: block;
@@ -153,178 +158,88 @@ h1, h2, h3, h4 {
     position: absolute;
     bottom: -1px;
     left: 0;
-    width: 80px;
-    height: 3px;
+    width: 50px;
+    height: 2px;
     background: var(--primary-gradient);
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
-/* Plans Grid */
+/* Plans Grid for non-auth pages */
 .plan-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .plan-card {
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
     background: white;
-    box-shadow: var(--shadow);
-    border: 2px solid transparent;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    transform-origin: center;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
 }
 
 .plan-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
-    border-color: rgba(59, 130, 246, 0.15);
-}
-
-.plan-card.selected {
-    border-color: var(--primary);
-    background: #fdfdff;
-    box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.1);
-}
-
-.plan-card.selected::before {
-    content: '✓';
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: var(--primary);
-    color: white;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-    animation: scaleIn 0.3s ease;
-}
-
-@keyframes scaleIn {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
-}
-
-.plan-name {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-color);
-    margin-bottom: 0.75rem;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
 .plan-price {
-    font-size: 2.75rem;
-    font-weight: 900;
+    font-size: 2rem;
+    font-weight: 800;
     color: var(--primary);
-    margin: 1.5rem 0;
-    letter-spacing: -0.05em;
-    display: flex;
-    align-items: baseline;
-    gap: 0.25rem;
-}
-
-.plan-price::before {
-    content: '₹';
-    font-size: 1.5rem;
-    font-weight: 700;
-    opacity: 0.6;
-}
-
-.plan-details {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 2;
+    margin: 1rem 0;
 }
 
 /* Forms */
 .form-group {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.25rem;
+    text-align: left;
 }
 
 label {
     display: block;
-    margin-bottom: 0.75rem;
-    font-weight: 700;
-    color: var(--text-color);
-    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    opacity: 0.8;
 }
 
-input, select {
+input,
+select {
     width: 100%;
-    padding: 1.125rem 1.5rem;
-    border-radius: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
     border: 1px solid #e2e8f0;
     background: #f8fafc;
     color: var(--text-color);
-    font-size: 1.05rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-    font-family: inherit;
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--primary);
-    background: white;
-    box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.08);
-    transform: translateY(-1px);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
 }
 
 button {
     background: var(--primary-gradient);
     color: white;
-    border: none;
-    padding: 1.25rem 2.5rem;
-    border-radius: 1rem;
-    font-weight: 800;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    width: 100%;
-    box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.4);
-    letter-spacing: 0.02em;
-    position: relative;
-    overflow: hidden;
+    padding: 0.85rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 0.5rem;
 }
 
 button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px -8px rgba(37, 99, 235, 0.5);
-    filter: brightness(1.1);
-}
-
-button:active {
-    transform: translateY(-1px);
-}
-
-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none !important;
-    filter: grayscale(0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .btn-secondary {
-    background: white;
-    border: 1px solid #e2e8f0;
-    color: var(--text-secondary);
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    width: auto;
-    box-shadow: var(--shadow-sm);
-    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
 }
 
 .btn-secondary:hover {
@@ -348,8 +263,15 @@ button:disabled {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Custom Scrollbar */
@@ -373,10 +295,29 @@ button:disabled {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    #root { padding: 1.5rem 1rem; }
-    .navbar { padding: 1rem 1.5rem; margin-bottom: 2rem; top: 0.5rem; }
-    .brand { font-size: 1.5rem; }
-    .card { padding: 1.5rem; }
-    .plan-grid { grid-template-columns: 1fr; }
-    .title { font-size: 1.5rem; }
+    #root {
+        padding: 1.5rem 1rem;
+    }
+
+    .navbar {
+        padding: 1rem 1.5rem;
+        margin-bottom: 2rem;
+        top: 0.5rem;
+    }
+
+    .brand {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .plan-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
 }
