@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 
 const AdminDashboard = ({ user }) => {
     const [plans, setPlans] = useState([]);
@@ -18,7 +19,7 @@ const AdminDashboard = ({ user }) => {
     const fetchPlans = async () => {
         try {
             const token = user?.token; // Assuming we store token in user object on login
-            const res = await fetch('http://localhost:5000/api/admin/plans', {
+            const res = await fetch(`${API_BASE_URL}/api/admin/plans`, {
                 headers: { 'auth-token': token }
             });
             const data = await res.json();
@@ -36,7 +37,7 @@ const AdminDashboard = ({ user }) => {
         e.preventDefault();
         try {
             const token = user?.token;
-            const res = await fetch('http://localhost:5000/api/admin/plans', {
+            const res = await fetch(`${API_BASE_URL}/api/admin/plans`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +61,7 @@ const AdminDashboard = ({ user }) => {
         if (!window.confirm('Delete this plan?')) return;
         try {
             const token = user?.token;
-            await fetch(`http://localhost:5000/api/admin/plans/${id}`, {
+            await fetch(`${API_BASE_URL}/api/admin/plans/${id}`, {
                 method: 'DELETE',
                 headers: { 'auth-token': token }
             });

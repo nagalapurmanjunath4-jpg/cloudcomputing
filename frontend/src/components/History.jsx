@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 
 const History = ({ user, onDeleteBill }) => {
     const [bills, setBills] = useState([]);
@@ -20,7 +21,7 @@ const History = ({ user, onDeleteBill }) => {
                 status: filters.status
             }).toString();
 
-            const res = await fetch(`http://localhost:5000/api/payment/user/${user.userId || user._id}?${query}`);
+            const res = await fetch(`${API_BASE_URL}/api/payment/user/${user.userId || user._id}?${query}`);
             if (res.ok) {
                 const data = await res.json();
                 setBills(data);
@@ -37,7 +38,7 @@ const History = ({ user, onDeleteBill }) => {
     const handleDelete = async (billId) => {
         if (!window.confirm("Delete this bill?")) return;
         try {
-            const res = await fetch(`http://localhost:5000/api/payment/${billId}`, { method: 'DELETE' });
+            const res = await fetch(`${API_BASE_URL}/api/payment/${billId}`, { method: 'DELETE' });
             if (res.ok) {
                 setBills(bills.filter(b => b._id !== billId));
             } else {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import API_BASE_URL from '../config';
 
 const Login = ({ onLogin, onSwitchToRegister }) => {
     const [username, setUsername] = useState('');
@@ -9,7 +10,7 @@ const Login = ({ onLogin, onSwitchToRegister }) => {
         e.preventDefault();
         setError('');
         try {
-            const response = await fetch('http://localhost:5000/api/auth/login', {
+            const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password }),

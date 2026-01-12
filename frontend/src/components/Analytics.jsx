@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API_BASE_URL from '../config';
 
 const Analytics = ({ user }) => {
     const [data, setData] = useState([]);
@@ -9,7 +10,7 @@ const Analytics = ({ user }) => {
 
     const fetchAnalytics = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/api/payment/analytics/${user.userId || user._id}`);
+            const res = await fetch(`${API_BASE_URL}/api/payment/analytics/${user.userId || user._id}`);
             if (res.ok) {
                 const json = await res.json();
                 setData(json);

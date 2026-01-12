@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import API_BASE_URL from '../config';
 
 const BillDetails = ({ selectedPlan, user, onPaymentSuccess, onBack }) => {
     const [consumerName, setConsumerName] = useState('');
@@ -18,7 +19,7 @@ const BillDetails = ({ selectedPlan, user, onPaymentSuccess, onBack }) => {
         setError(null);
 
         try {
-            const response = await fetch('http://localhost:5000/api/payment/paybill', {
+            const response = await fetch(`${API_BASE_URL}/api/payment/paybill`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

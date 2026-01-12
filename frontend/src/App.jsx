@@ -7,6 +7,7 @@ import Register from './components/Register';
 import AdminDashboard from './components/AdminDashboard';
 import History from './components/History';
 import Analytics from './components/Analytics';
+import API_BASE_URL from './config';
 
 function App() {
     const [user, setUser] = useState(null);
@@ -64,7 +65,7 @@ function App() {
         // Passed to History component
         if (!window.confirm("Are you sure you want to delete this bill?")) return;
         try {
-            const response = await fetch(`http://localhost:5000/api/payment/${billId}`, { method: 'DELETE' });
+            const response = await fetch(`${API_BASE_URL}/api/payment/${billId}`, { method: 'DELETE' });
             if (response.ok) {
                 // Trigger refresh in History component? 
                 // Since History fetches its own data on mount/update, we might need a way to signal it.

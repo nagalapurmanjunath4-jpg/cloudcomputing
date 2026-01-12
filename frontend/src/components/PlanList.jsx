@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 
 const PlanList = ({ selectedPlan, onSelectPlan }) => {
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/payment/plans/active')
+        fetch(`${API_BASE_URL}/api/payment/plans/active`)
             .then(res => res.json())
             .then(data => {
                 console.log("Fetched plans:", data);
